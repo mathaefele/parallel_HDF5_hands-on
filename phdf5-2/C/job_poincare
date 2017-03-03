@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#
+# Job Submission Script for Poincare
+#
+
+#@ class            = clallmds
+#@ job_name         = pHDF5
+#@ total_tasks      = 4
+#@ node             = 1
+#@ wall_clock_limit = 00:10:00
+#@ output           = $(job_name).$(jobid).log
+#@ error            = $(job_name).$(jobid).err
+#@ job_type         = mpich
+#@ environment      = COPY_ALL 
+#@ queue
+
+
+env > my_env
+
+
+mpirun -n 4 ./phdf5_ex2 
+
+
