@@ -1,7 +1,7 @@
 # Parallel HDF5 hands-on
 Slides and hands on material in C and fortran90 for learning parallel HDF5
 
-Exercices are explained in the last slide of file 2017-03_haefele_PATC-parallel-HDF5.pdf
+Exercices are explained in the last slide of file slides_PATC-parallel-HDF5.pdf
 
 *To compile the provided parallel programs on the poincare machine*
 
