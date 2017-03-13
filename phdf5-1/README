@@ -1,0 +1,12 @@
+Parallel HDF5 Tutorial 1/4
+==========================
+
+Examine the source code, compile and run it with 4 ranks:
+make
+llsubmit job_poincare
+
+Examine the output files example0.h5, example1.h5, example2.h5, example3.h5, with h5ls and h5dump command line tools. The data is a 2D array distributed between the ranks in block-block manner. In this first version, each rank exports its local data in a dataset in a separate file.
+
+Modify the program such that each rank writes its own data in separate dataset but within the same file.
+
+NB: The synchronisation between each file creation is not necessary in this so-called "multi file" version. On the contrary, it will limit the performance. It is here to help you implement the exercise because such a synchronisation is mandatory when several ranks writes to the same file in different datasets.

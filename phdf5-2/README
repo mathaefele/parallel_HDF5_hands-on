@@ -1,0 +1,12 @@
+Parallel HDF5 Tutorial 2/4
+==========================
+
+The available code is the solution of the previous exercise. If you managed to do it, you can start from your own code
+Examine the source code, compile and run it with 4 ranks:
+make
+llsubmit job_poincare
+
+
+Examine the output files example.h5 with h5ls and h5dump command line tools. The data is a 2D array distributed between the ranks in block-block manner. In this second version, each rank exports its local data in a different  dataset within the same file.
+
+Modify the program such that the global 2D array is reconstructed in a single dataset inside the file. Rank 0 has to create the global dataset with global sizes performs a partial IO to write its local data at the right position in the dataset and closes the file. Then, the remaining ranks open the file and the dataset and performs similar partial IO to write their data at the good location in the dataset.

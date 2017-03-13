@@ -1,0 +1,12 @@
+Parallel HDF5 Tutorial 4/4
+==========================
+
+The available code is very similar to the one provided in phdf5-1. The difference is that each rank owns ghost cells at the borders of its domain with Dirichlet boundary conditions. 
+Examine the source code, compile and run it with 4 ranks:
+make
+llsubmit job_poincare
+
+
+Examine the output files example.h5 with h5ls and h5dump command line tools. In this version, each rank exports its local data into its own separated file as in phdf5-1. 
+
+Modify the program such that all the ranks write concurrently their data into a single dataset thanks to MPI-IO like phdf5-3. 
