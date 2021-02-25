@@ -6,14 +6,10 @@
 ##                   matthieu.haefele@maisondelasimulation
 ## 
 ###############################################################################
-
-
-CC= mpicc
-CCFLAGS_HDF5= -I$(HDF5_INC_DIR)
-CLDFLAGS_HDF5= -L$(HDF5_LIB_DIR) -lhdf5_hl -lhdf5 -lz 
+include ../../../arch/make_inc
 
 phdf5_ex4 : phdf5_ex4.o
-	$(CC) $(CCFLAGS_HDF5) phdf5_ex4.o -o $@ $(CLDFLAGS_HDF5)
+	$(CC) $(CCFLAGS_HDF5) phdf5_ex4.o -o $@ $(CLDFLAGS_HDF5) $(LIBS)
 
 
 ##### RULES #####

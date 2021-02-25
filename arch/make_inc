@@ -1,0 +1,8 @@
+CC= mpicc
+CCFLAGS_HDF5=-I$(HDF5_DIR)/include
+CLDFLAGS_HDF5=-L$(HDF5_DIR)/lib -lhdf5_hl -lhdf5
+LIBS= -lm
+	
+MPIF90=mpif90
+FFLAGS_HDF5=-I$(HDF5_DIR)/include
+LDFLAGS_HDF5=-L$(HDF5_DIR)/lib -lhdf5hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5

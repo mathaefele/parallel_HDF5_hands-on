@@ -6,11 +6,8 @@
 ##                   matthieu.haefele@maisondelasimulation
 ## 
 ###############################################################################
+include ../../../arch/make_inc
 
-MPIF90=mpif90
-
-FFLAGS_HDF5= -I$(HDF5_INC_DIR)
-LDFLAGS_HDF5= -L$(HDF5_LIB_DIR)  -lhdf5hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5 -lz
 
 phdf5_ex4 : phdf5_ex4.o
 	$(MPIF90) $(FFLAGS_HDF5) phdf5_ex4.o -o $@ $(LDFLAGS_HDF5)
