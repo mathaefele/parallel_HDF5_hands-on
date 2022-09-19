@@ -2,13 +2,26 @@
 Slides and hands on material in C and fortran90 for learning parallel HDF5
 
 
-*Environment required on the poincare machine*
+*Environment required on the plafrim machine with guix*
 
-module load gnu/4.7.2 openmpi/1.6.3_gnu47 hdf5/1.8.10_gnu47_openmpi
-make
+If not yet done during HDF5_hands-on, first initialize guix at the current version
+```bash
+guix pull # The first one triggers an error
+guix pull # The second one is pretty long...
+```
 
-*To submit the execution of the application on the poincare machine*
-llsubmit job_poincare
+Then compile exercices inside the following guix shell
+```bash
+guix shell openmpi hdf5-parallel-openmpi@1.10.7 hdf5-parallel-openmpi@1.10.7:fortran coreutils gfortran-toolchain gcc-toolchain
+```
+
+*To submit the execution of the application on the plafrim machine*
+```bash
+sbatch job_plafrim
+```
+
+
+
 
 *Exercices*
 1. Parallel multi files: all MPI ranks write their whole memory in separate file (provided in phdf5-1)

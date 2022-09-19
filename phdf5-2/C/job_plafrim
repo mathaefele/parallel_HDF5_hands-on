@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Job name
+#SBATCH -J HDF5
+# Asking for one node
+#SBATCH -N 1
+#SBATCH -n 4
+# Standard output
+#SBATCH -o slurm.sh%j.out
+# Standard error
+#SBATCH -e slurm.sh%j.err
+
+echo "=====my job information ===="
+echo "Node List: " $SLURM_NODELIST
+echo "my jobID: " $SLURM_JOB_ID
+echo "Partition: " $SLURM_JOB_PARTITION
+echo "submit directory:" $SLURM_SUBMIT_DIR
+echo "submit host:" $SLURM_SUBMIT_HOST
+echo "In the directory:" $PWD
+echo "As the user:" $USER
+
+module purge
+guix shell openmpi hdf5-parallel-openmpi@1.10.7 hdf5-parallel-openmpi@1.10.7:fortran coreutils -- mpirun -n 4 ./phdf5_ex2
+
