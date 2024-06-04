@@ -5,5 +5,5 @@ CCFLAGS_HDF5=-I$(HDF5_DIR)/include -I$(MPI_DIR)/include
 CLDFLAGS_HDF5=-L$(HDF5_DIR)/lib -L$(MPI_DIR)/lib -lhdf5_hl -lhdf5
 	
 CF95=mpif90
-FFLAGS_HDF5=-I$(HDF5_DIR)/include -I$(MPI_DIR)/include
-LDFLAGS_HDF5=-L$(HDF5_DIR)/lib -L$(MPI_DIR)/lib -lhdf5hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5
+FFLAGS_HDF5=-I$(HDF5_DIR)/include -I$(MPI_DIR)/include -I$(HDF5_DIR)/include/static
+LDFLAGS_HDF5=-L$(HDF5_DIR)/lib -L$(MPI_DIR)/lib -lhdf5_hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5

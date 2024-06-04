@@ -10,12 +10,10 @@ Load the following modules
 module load gcc/11.2.0/gcc-4.8.5
 module load hdf5/1.12.0/gcc-11.2.0-openmpi
 
-*To submit the execution of the application on the plafrim machine*
+*To submit the execution of the application on the ruche cluster*
 ```bash
-sbatch job_plafrim
+sbatch job
 ```
-
-
 
 
 *Exercices*
