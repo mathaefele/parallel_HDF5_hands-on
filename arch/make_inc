@@ -1,8 +1,9 @@
-CC= mpicc
-CCFLAGS_HDF5=-I$(GUIX_ENVIRONMENT)/include
-CLDFLAGS_HDF5=-L$(GUIX_ENVIRONMENT)/lib -lhdf5_hl -lhdf5
-LIBS= -lm
+HDF5_DIR=/gpfs/softs/spack_0.17/opt/spack/linux-centos7-cascadelake/gcc-11.2.0/hdf5-1.12.0-ycraeazephgnlc3zje6k43q5yd65grei
+MPI_DIR=/gpfs/softs/spack_0.17/opt/spack/linux-centos7-cascadelake/gcc-11.2.0/openmpi-4.1.1-ujlwnrlh5sewm2rxkpio3h5mariwgetn
+CC=mpicc 
+CCFLAGS_HDF5=-I$(HDF5_DIR)/include -I$(MPI_DIR)/include
+CLDFLAGS_HDF5=-L$(HDF5_DIR)/lib -L$(MPI_DIR)/lib -lhdf5_hl -lhdf5
 	
-MPIF90=mpif90
-FFLAGS_HDF5=-I$(GUIX_ENVIRONMENT)/include
-LDFLAGS_HDF5=-L$(GUIX_ENVIRONMENT)/lib -lhdf5hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5
+CF95=mpif90
+FFLAGS_HDF5=-I$(HDF5_DIR)/include -I$(MPI_DIR)/include
+LDFLAGS_HDF5=-L$(HDF5_DIR)/lib -L$(MPI_DIR)/lib -lhdf5hl_fortran -lhdf5_fortran -lhdf5_hl -lhdf5

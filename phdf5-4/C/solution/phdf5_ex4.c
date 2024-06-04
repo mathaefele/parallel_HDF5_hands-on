@@ -35,6 +35,12 @@ int* init(int mpi_id, int size, int* sx, int* sy, int* ox, int* oy, int* sx_arra
 {
   int i,j;
   int* data;
+  int nb_proc_per_dim = 1;
+  if(size == 4)
+  	nb_proc_per_dim = 2;
+  else if(size == 16)
+  	nb_proc_per_dim = 4;
+  //int nb_proc_per_dim = (int) sqrt(size);
   int nb_proc_per_dim = (int) sqrt(size);
   int size_x = NX/nb_proc_per_dim + 2;
   int size_y = NY/nb_proc_per_dim + 2;

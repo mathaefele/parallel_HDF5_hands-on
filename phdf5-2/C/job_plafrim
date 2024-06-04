@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Job name
+##SBATCH --reservation=bigotj_136 
 #SBATCH -J HDF5
 # Asking for one node
 #SBATCH -N 1
-#SBATCH -n 4
+#SBATCH -n 16
 # Standard output
 #SBATCH -o slurm.sh%j.out
 # Standard error
@@ -19,5 +20,8 @@ echo "In the directory:" $PWD
 echo "As the user:" $USER
 
 module purge
-guix shell openmpi hdf5-parallel-openmpi@1.10.7 hdf5-parallel-openmpi@1.10.7:fortran coreutils -- mpirun -n 4 ./phdf5_ex2
+module load gcc/11.2.0/gcc-4.8.5
+module load hdf5/1.12.0/gcc-11.2.0-openmpi
+
+srun -n 4 ./phdf5_ex2
 

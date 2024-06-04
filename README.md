@@ -2,18 +2,13 @@
 Slides and hands on material in C and fortran90 for learning parallel HDF5
 
 
-*Environment required on the plafrim machine with guix*
+*Environment required on the ruche machine with the installed modules*
 
-If not yet done during HDF5_hands-on, first initialize guix at the current version
+Load the following modules
 ```bash
-guix pull # The first one triggers an error
-guix pull # The second one is pretty long...
-```
 
-Then compile exercices inside the following guix shell
-```bash
-guix shell openmpi hdf5-parallel-openmpi@1.10.7 hdf5-parallel-openmpi@1.10.7:fortran coreutils gfortran-toolchain gcc-toolchain
-```
+module load gcc/11.2.0/gcc-4.8.5
+module load hdf5/1.12.0/gcc-11.2.0-openmpi
 
 *To submit the execution of the application on the plafrim machine*
 ```bash
